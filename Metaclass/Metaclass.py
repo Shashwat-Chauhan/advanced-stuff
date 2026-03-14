@@ -103,7 +103,10 @@ class UpperAttrMeta(type):
                 new_attrs[key] = value
 
         return super().__new__(cls, name, bases, new_attrs)
-
+        # This line creates the class object of the parent (type)
+        # so it is equivalent to:
+        # return type.__new__(cls, name, bases, new_attrs)
+        
 
 class Test(metaclass=UpperAttrMeta):
     name = "python"
